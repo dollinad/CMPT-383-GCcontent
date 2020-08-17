@@ -1,0 +1,37 @@
+version: "3.4"
+
+services:
+    go:
+        build: 
+            context: ./django_react_bioinfo
+            target: go
+        volumes: 
+            - ./django_react_bioinfo:/app/go
+        command: go build -buildmode=c-shared -o main.so .
+    django_react_bioinfo:
+        build:
+            context: ./django_react_bioinfo
+            target: django
+        volumes:
+            - ./django_react_bioinfo:/app/backend
+        ports:
+            - "8000:8000"
+        stdin_open: true
+        depends_on: 
+            - go
+        tty: true
+        command: python3 manage.py runserver 0.0.0.0:8000
+    bioinfojs:
+        build: ./bioinfojs
+        volumes:
+            - ./bioinfojs:/app/src
+            - /app/node/modules
+        stdin_open: true
+        ports:
+         - "3000:3000"
+        environment:
+         - NODE_ENV=development
+        depends_on:
+         - django_react_bioinfo
+        command: npm run start
+        
