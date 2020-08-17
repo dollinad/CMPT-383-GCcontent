@@ -1,0 +1,10 @@
+The overall goal of this project is to calculate the GC% in the given DNA sequence. GC% is calculated by taking the sum of Gs + Cs and dividing it by the total number of bases in the genome (A + C + G + T). 
+
+I have used Javascript (React) for the frontend, Python (Django) for the backend and Go for the actual calculation. Go calculates this number in parallel using channels. 
+
+The frontend and backend communicate using a REST API framework and the Django framwork then calls a go function using a foreign function interface. 
+
+After cloning the repository, start with docker-compose up --build and all the docker image to build and run (it might take some time). Once it is complete, you can view the app in your browser. The easiest way to do this is by right clicking on the docker image and slecting view in browser. 
+
+
+
