@@ -1,6 +1,6 @@
-The overall goal of this project is to calculate the GC% in the given DNA sequence. GC% is calculated by taking the sum of Gs + Cs and dividing it by the total number of bases in the genome (A + C + G + T). 
+The overall goal of this project is to calculate the GC% in the given DNA sequence. GC% is calculated by taking the sum of Gs + Cs and dividing it by the total number of bases in the genome (A + C + G + T). Rhe app will gnerate a percentage repsenting the GC content and a bar grap showing how many nucleotides of each type and in the genome. 
 
-I have used Javascript (React) for the frontend, Python (Django) for the backend and Go for the actual calculation. Go calculates this number in parallel using channels. 
+I have used Javascript (React) for the frontend, Python (Django) for the backend and Go for the actual calculation. Go calculates this number in parallel using channels. In the future this calculation could be more complex by using asking the user to input a window size and involving trasncription.
 
 The frontend and backend communicate using a REST API framework and the Django framwork then calls a go function using a foreign function interface. 
 
